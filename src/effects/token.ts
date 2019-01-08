@@ -1,0 +1,1 @@
+export const EFFECT = Symbol('metadata:effect');
