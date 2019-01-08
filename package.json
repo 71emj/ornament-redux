@@ -1,0 +1,49 @@
+{
+  "name": "@ornament/redux",
+  "version": "1.0.0",
+  "description": "A lightweight observable wrapper for redux store inspired by ngrx",
+  "main": "./dist/bundles/redux.umd.js",
+  "module": "./dist/bundles/redux.es.js",
+  "files": [
+    "./dist/**",
+    "./package.json"
+  ],
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "electron",
+    "rollup": "rollup",
+    "compile": "tsc",
+    "build": "yarn run prebuild && yarn run compile && yarn run build:umd && yarn run afterbuild",
+    "build:umd": "rollup --config ./rollup.config.js",
+    "prebuild": "yarn run clean",
+    "afterbuild": "node ./afterbuild.js",
+    "clean": "yarn run clean:dist",
+    "clean:dist": "rimraf ./dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "71emj, Timothy Jeng <tim.jeng@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@ornament/di": "file:../../../../build/ornament-di-v0.1.1.tgz",
+    "rxjs": "^6.3.3"
+  },
+  "dependencies": {
+    "redux": "^4.0.1",
+    "reflect-metadata": "^0.1.12"
+  },
+  "devDependencies": {
+    "@types/redux": "^3.6.0",
+    "path": "^0.12.7",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.0.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-typescript2": "^0.18.1",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^5.3.2",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2",
+    "uglify-js": "^3.4.9"
+  }
+}
